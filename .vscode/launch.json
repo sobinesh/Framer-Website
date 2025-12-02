@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Server (index.js)",
+            "program": "${workspaceFolder}/index.js",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {
+                "PORT": "3000"
+            },
+            "serverReadyAction": {
+                "pattern": "Server is running at http://localhost:(\\d+)",
+                "uriFormat": "http://localhost:%s",
+                "action": "openExternally"
+            }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run Dev (npm)",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run", "dev"],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Run Dev and Chrome",
+            "configurations": [
+                "Launch Server (index.js)",
+                "Launch Chrome against localhost"
+            ]
+        },
+        {
+            "name": "Run npm dev and Chrome",
+            "configurations": [
+                "Run Dev (npm)",
+                "Launch Chrome against localhost"
+            ]
+        }
+    ]
+}

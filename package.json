@@ -1,0 +1,25 @@
+{
+  "name": "framerwebsite",
+  "version": "1.0.0",
+  "description": "Framer Website to test ",
+  "homepage": "https://github.com/sobinesh/Framer-Website#readme",
+  "bugs": {
+    "url": "https://github.com/sobinesh/Framer-Website/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sobinesh/Framer-Website.git"
+  },
+  "license": "ISC",
+  "author": "sobinesh",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
