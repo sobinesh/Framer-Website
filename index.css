@@ -1,23 +1,32 @@
+.montserrat-header {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 #header {
-    background-color: greenyellow;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: black;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Clarifying styling for testing */
 body {
-    margin: 0;
-    padding: 0;
-    background-color: lightblue;
+  margin: 0;
+  padding: 0;
+  background-color: black;
 }
 
 .crumbs {
   background-color: white;
   display: flex;
-  justify-content:start; /* centers horizontally */
-  align-items: center; /* centers vertically if parent has height */
+  justify-content: start;
+  /* centers horizontally */
+  align-items: center;
+  /* centers vertically if parent has height */
   list-style-type: none;
   position: relative;
   list-style: none;
@@ -29,48 +38,232 @@ a {
   color: #333;
   text-align: center;
   font-weight: 500;
-  padding: 0;
   margin: 0;
   text-decoration: none;
+  padding: 12px 10px;
 }
 
-.sidebar{
+li {
+  display: inline-block;
+  padding: 12px 10px;
+}
+
+.sidebar {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 0;
-  margin: 0;
   height: 100vh;
+  width: 240px;
+  background-color: rgba(175, 255, 2, 0.882);
   backdrop-filter: blur(10px);
-  width: 250px;
-  z-index: 999;
-  background-color: rgba(255, 255, 255, 0.2);
   display: none;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  z-index: 2000;
 }
 
-ul :hover{
-   background-color: lightgray;
+.sidebar li{
+  min-width: 200px;
+  width: 200px;
+  border-radius: 10px;
+  background-color: white;
+  margin: 5px;
 }
 
-li{
-  padding: 12px 10px;
-  display: inline-block;
+.sidebar li:hover {
+  background-color: rgb(27, 150, 231);
+  border-radius: 15px;
+  color: white;
+}
+.sidebar li:hover a{
+  background-color: rgb(27, 150, 231);
+  border-radius: 15px;
+  color: white;
 }
 
-ul{
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a:hover {
+  background-color: rgb(27, 150, 231);
+  border-radius: 15px;
+  color: white;
+}
+
+ul {
   margin: 0;
   padding: 0;
 }
 
-.closeButton{
+.closeButton {
   background-color: white;
   background: white;
+  border-radius: 10px;
   width: 230px;
 }
 
-.closeButton:hover{
+.lightBeam {
+  position: absolute;
+  left: 0;
+  height: 80px;
+  z-index: 999;
+}
+
+#green-box {
+  background: linear-gradient(135deg, green 0 20%, lightgreen, lightgreen);
+}
+
+#yellow-box {
+  background: linear-gradient(135deg, yellow 0 20%, rgb(249, 249, 168), rgb(249, 249, 168));
+}
+
+#purple-box {
+  background: linear-gradient(135deg, purple 0 20%, rgb(167, 94, 167), rgb(216, 137, 216));
+}
+
+.box {
+  margin: 0 0 0 -10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  z-index: 1000;
+}
+
+.boxBg {
+  padding: 10px 0;
+  margin: 20px 0 30px 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  height: 80px;
+  /* spacing between trails */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  text-decoration-color: beige;
+  color: beige;
+  background-color: black;
+}
+
+#openIcon:hover {
+  background-color: grey;
+}
+
+.closeButton:hover {
   background-color: white;
+  border-radius: 30px;
+}
+
+#openIcon {
+  border-radius: 20px;
+  background-color: white;
+  z-index: 10;
+}
+
+.iconDiv {
+  height: 5px;
+  width: 30px;
+  margin: 5px;
+  background-color: rgb(39, 40, 58);
+  border-radius: 25px;
+}
+
+.iconDiv:hover {
+  background-color: rgb(39, 40, 58);
+}
+
+.carousel {
+  margin: 10px 0;
+  display: flex;
+  overflow-x: auto;/* enables carousel scrolling */
+  overflow-y: hidden;
+  scroll-snap-type:x mandatory;
+}
+
+.carousel ul{
+  display: inline-flex;
+  list-style: none;white-space: nowrap;
+}
+
+.carousel a{
+  white-space: nowrap;
+  background: lightcoral;
+  border-radius: 10px;
+}
+
+.carousel a:hover{
+  background: greenyellow;
+  color: black;
+  border-radius: 30px;
+}
+
+.carousel::-webkit-scrollbar{
+  display: none;
+}
+
+
+.circle {
+  border-radius: 100px;
+  height: 50px;
+  width: 50px;
+  background-color: rgb(39, 40, 58);
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.crossBg {
+  background-color: white;
+  height: 45px;
+  width: 45px;
+  border-radius: 100px;
+}
+
+.cross {
+  width: 45px;
+  height: 45px;
+  background: rgb(39, 40, 58);
+  /* circle background */
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cross::before,
+.cross::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  /* length of X arms */
+  height: 4px;
+  /* thickness */
+  background: white;
+  /* color of X */
+  border-radius: 4px;
+}
+
+.cross::before {
+  transform: rotate(45deg);
+}
+
+.cross::after {
+  transform: rotate(-45deg);
+}
+
+.carousel a{
+  color:bisque;
 }

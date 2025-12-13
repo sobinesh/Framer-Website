@@ -4,27 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Framer Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" 
+          rel="stylesheet">
     <link rel="stylesheet" href="index.css"/>
+    <!-- Required Core -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+
+    <!-- Free Plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/EaselPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Observer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/PixiPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js"></script>
+
+    <!-- Free Easings -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/EasePack.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/CustomEase.min.js"></script>
+
     <script src="index.js"></script>
+
 </head>
 <body>
     <header id="header">
-        <h1>Framer Website</h1>
+        <h1 class="title">Framer Website</h1>
     </header>
 <nav>
   <ul class="sidebar">
-    <li class="closeButton" onclick=HideSideBar()><img height="50px" src="data:image/png;base64,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" /></li>
+    <li class="closeButton" onclick=HideSideBar()>
+      <div class="circle">
+        <div class="crossBg">
+          <div class="cross">
+        </div>
+        </div>
+      </div>
+    </li>
     <li><a href="#">Bikes</a></li>
     <li><a href="#">BMX</a></li>
     <li><a href="#">Jump Bike 3000</a></li>
   </ul>
   
   <ul class="crumbs">
-    <li  width="50px" onclick=ShowSideBar()><a href="#"><img height="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADACAMAAAB/Pny7AAAAXVBMVEX///8AAAD5+fny8vKioqIrKyt0dHTQ0NDe3t7b29vt7e13d3fJycl7e3u2trY4ODjk5OQzMzNOTk5ra2u+vr5cXFyXl5c+Pj6urq6GhoZkZGSPj48YGBhVVVULCwtOZrc/AAACRklEQVR4nO3di27iMBCF4QBecjMhCVBoU/r+j7lN2ZtW8k2qNPbwf08wR+AQO8OkqgAAAAAAAAAAAEq13WVtmxBltMt9+pGt6b7YMTbKcNxk7zhExalP0oXGOdXhLOcCPpaH4zmUxRaT5TON9WdpLtIVprg0vizbF+n60rz4rtH1Vbq8NFffReAmXV2qmztLt5cuLtW+c4ZpJ+niUk2te8lI15bOvWgII+tJwoyzdG2pZvc9wO5VurhUrztnmGqQLi7V4M5SjW/S1aV58+7Qhg/p+lJ8+D6Y0laNb8V8fdEKuj07BY8BmoN0jbEO3q3ZQ2eK2DkfjfuG+V+1uUuXGjKbiLOZh21jbyZjN9uknGl+BspYUhAAAAAAAADg+2Td15h0cNa156XfZ6tfzm3cQXNV7Wz/Ln2WHPLe28CzmYd2ka40zuLuNPmjLqZ97hJ8EFBn/zTjr3sgTVlNWp4GrZWRri+N8WVpC+s3mX0XAU0dGl0xT5p/O7hXTVNY8+xmc3U/PlfVb0YYWU8SRtUFQNWlWdWPpq7bGVU3mrq2AKo2Z7q2zboONHQdNVWqDgG/6DmeBQAAAAAAAL6R9F9+fdKCKPqjtjXZP0CbTWCE3i+dKWKW1hQz3KDppcuMFR47MRYyRXMVGgiialSLpiE6qsYbaerQKGvFrDyrpsn+x/J/nmFtqvrNCCPrScKoGtdaVoPWytekpWnEsa7h06rGgqsa2K5rlL6ulxzoev2ErheDVKpe2bLKuquRvkYAAAAAAAAAAFCyn9xTXeNxaBhTAAAAAElFTkSuQmCC"/></a></li>
+    <li id="openIcon" width="50px" onclick=ShowSideBar()>
+      <div class="iconDiv"></div>
+      <div class="iconDiv"></div>
+      <div class="iconDiv"></div>
+
+    </li>
     <li class="crumb"><a href="#">Bikes</a></li>
     <li class="crumb"><a href="#">BMX</a></li>
     <li class="crumb"><a href="#">Jump Bike 3000</a></li>
   </ul>
 </nav>
+
+<div class="carousel">
+<ul> 
+  <li><a href="#">Bikes</a></li>
+  <li><a href="#">BMX</a></li>
+  <li><a href="#">Jump Bike 3000</a></li><li><a href="#">Bikes</a></li>
+  <li><a href="#">BMX</a></li>
+  <li><a href="#">Jump Bike 3000</a></li><li><a href="#">Bikes</a></li>
+  <li><a href="#">BMX</a></li>
+  <li><a href="#">Jump Bike 3000</a></li><li><a href="#">Bikes</a></li>
+  <li><a href="#">BMX</a></li>
+  <li><a href="#">Jump Bike 3000</a></li><li><a href="#">Bikes</a></li>
+  <li><a href="#">BMX</a></li>
+  <li><a href="#">Jump Bike 3000</a></li>
+  <li><a href="#">Bikes</a></li>
+  <li><a href="#">BMX</a></li>
+  <li><a href="#">Jump Bike 3000</a></li>
+  <li><a href="#">Bikes</a></li>
+  <li><a href="#">BMX</a></li>
+  <li><a href="#">Jump Bike 3000</a></li>
+  <li><a href="#">Bikes</a></li>
+  <li><a href="#">BMX</a></li>
+  <li><a href="#">Jump Bike 3000</a></li>
+</ul>
+</div>
+
+<div class="boxBg">
+  <div class="lightBeam" id="beam-green"></div>
+  <div class="box" id="green-box"></div>
+</div>
+
+<div class="boxBg">
+  <div class="lightBeam" id="beam-purple"></div>
+  <div class="box" id="purple-box"></div>
+</div>
+
+<div class="boxBg">
+  <div class="lightBeam" id="beam-yellow"></div>
+  <div class="box" id="yellow-box"></div>
+</div>
+
+<div>
+  
+</div>
+
 </body>
 </html>
